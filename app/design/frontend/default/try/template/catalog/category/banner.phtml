@@ -1,0 +1,14 @@
+
+
+<div class="container" >
+    <?php
+    
+    $cat = Mage::registry('current_category');
+    if($cat){
+        $html = Mage::app()->getLayout()->createBlock('cms/block')
+                    ->setBlockId($cat->getLandingPage())
+                    ->toHtml();
+        if($html) echo $html;
+    }
+    ?>
+</div>

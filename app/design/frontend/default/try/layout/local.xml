@@ -20,10 +20,42 @@
           <id>back-to-mventory</id>
         </aParams>
       </action>
+      
+      
+      <action method="addLink" translate="label title">
+        <label></label>
+        <url>#fb</url>  
+        <title>Fb</title>
+        <prepare/> 
+        <urlParams /> 
+        <position>98</position>
+        <liParams/>
+        <aParams>class="fb-icon"</aParams>
+        <beforeText></beforeText>
+        <afterText></afterText>
+      </action>
+       <action method="addLink" translate="label title">
+        <label></label>
+        <url>#gplus</url>  
+        <title>gplus</title>
+        <prepare/> 
+        <urlParams /> 
+        <position>97</position>
+        <liParams/>
+        <aParams>class="gplus-icon"</aParams>
+        <beforeText></beforeText>
+        <afterText></afterText>
+      </action>     
+      
+      
+      
     </reference>
   </default>
 
   <catalog_category_default>
+    
+    
+    
     <reference name="product_list">
       <action method="setColumnCount"><count>3</count></action>
     </reference>

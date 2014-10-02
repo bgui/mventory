@@ -49,7 +49,9 @@
 
 
                <div class="shopping_bg" onclick="setLocation('<?php echo $this->getUrl('checkout/cart') ?>')">
-                                <img src="<?php echo $this->getSkinUrl('images/shopping.png') ?>" alt="" />
+                                <!--<img src="<?php echo $this->getSkinUrl('images/shopping.png') ?>" alt="" />-->
+                                <img src="<?php echo $this->getSkinUrl('images/blue_cart.png') ?>" alt="" />
+                                
 				<h1><?php echo $this->__('Demo Store') ?></h1>
 
                                 <?php echo $this->getChildHtml('cart_sidebar') ?>
@@ -66,8 +68,10 @@
     <?php echo $this->getChildHtml('topMenu') ?>
     <div id="social-and-search-wrapper" class="clearer">
         <div id="top-social">
-            <a class="btn_follow_fb" href="<?php echo $this->getData('social_link_facebook'); ?>" title="<?php echo $this->__("Follow us on Facebook"); ?>"> </a>
+            
             <a class="btn_follow_pin" href="http://www.pinterest.com/mventory/" title="Follow us on Pinterest"> </a>
+            <a class="btn_follow_fb" href="<?php echo $this->getData('social_link_facebook'); ?>" title="<?php echo $this->__("Follow us on Facebook"); ?>"> </a>
+            
         </div>
         <div id="top-search">
             <?php echo $this->getChildHtml('topSearch') ?>

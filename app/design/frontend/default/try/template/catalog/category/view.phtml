@@ -78,8 +78,10 @@ switch (true) {
     echo $this->getCmsBlockHtml();
     break;
   case $this->isMixedMode():
+    
+    ##echo $this->getCmsBlockHtml(); ///moved to banner.phtml
     echo $this->getProductListHtml();
-    echo $this->getCmsBlockHtml();
+    
     break;
   default:
     echo $this->getProductListHtml();
