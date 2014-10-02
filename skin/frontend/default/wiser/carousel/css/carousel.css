@@ -1,0 +1,403 @@
+/* carousel */
+#new-product-collation{width: 2400px; left: 0px;}
+		.ui-carousel .carousel-mask,
+		.ui-touchCarousel .carousel-mask {
+		    position:relative;
+		    overflow:hidden;
+		
+		}
+		
+			.ui-carousel ul,
+			.ui-touchCarousel ul {
+				position: absolute;
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			.no-js .ui-carousel ul,
+			.no-js .ui-touchCarousel ul {
+				position: static;
+			}
+			
+				.ui-carousel ul li,
+				.ui-touchCarousel ul li {
+					/*float: left;
+					width: 150px;
+					height: 150px;
+					color: #fff;
+					font-size: 8em;
+					text-align: center;
+					margin: 0;*/
+				}
+		
+				.ui-carousel.ui-carousel-vertical ul li,
+				.ui-touchCarousel.ui-touchCarousel-vertical ul li {
+					float: none;
+				}
+		
+		/* pagination */
+		.ui-carousel .pagination-links,
+		.ui-touchCarousel .pagination-links {
+		    list-style: none;
+		    margin: 0;
+		    padding: 0;
+		}
+		 
+			.ui-carousel .pagination-links li,
+			.ui-touchCarousel .pagination-links li {
+				display: inline;
+			}
+
+				.ui-carousel .pagination-links a,
+				.ui-touchCarousel .pagination-links a {
+					padding: 2px 6px;	
+				}
+
+				.ui-carousel .pagination-links a:hover,
+				.ui-touchCarousel .pagination-links a:hover {
+					text-decoration: none;
+				}
+
+				.ui-carousel .pagination-links li.current a,
+				.ui-touchCarousel .pagination-links li.current a {
+					 background: #444;
+					 color: #fff;
+				}
+		 
+				.ui-carousel .disabled,
+				.ui-touchCarousel .disabled {
+					color: gray;
+					cursor: default;
+				}
+				
+				.ui-carousel .pagination-links.void,
+				.ui-touchCarousel .pagination-links.void {
+					display: none;
+				}
+				
+		/** next & prev actions **/
+		.ui-carousel .next.void,
+		.ui-touchCarousel .next.void,
+		.ui-carousel .prev.void,
+		.ui-touchCarousel .prev.void {
+			display: none;
+		}
+		
+		
+		
+		
+		
+		
+		/** new-product-carousel **/
+		
+		/** horizontal **/
+		#new-product-carousel {}
+		
+			/** items per page **/
+			#new-product-carousel.ui-carousel-items-1 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-items-1 .carousel-mask {
+				width: 150px;
+			}
+			
+			#new-product-carousel.ui-carousel-items-2 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-items-2 .carousel-mask {
+				width: 300px;
+			}
+			
+			#new-product-carousel.ui-carousel-items-3 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-items-3 .carousel-mask {
+				width: 581px;
+			}
+			
+			#new-product-carousel.ui-carousel-items-4 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-items-4 .carousel-mask {
+				width: 600px;
+			}
+			
+			/** no of rows **/
+			
+			#new-product-carousel.ui-carousel-rows-1 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-rows-1 .carousel-mask {
+				height: 410px;
+				width:100%;
+				float:left;
+				w-dth:549px;
+			}
+			
+			#new-product-carousel.ui-carousel-rows-2 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-rows-2 .carousel-mask {
+				height: 300px;
+			}
+			
+			#new-product-carousel.ui-carousel-rows-3 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-rows-3 .carousel-mask {
+				height: 450px;
+			}
+		
+		/** vertical **/
+		#new-product-carousel.ui-carousel-vertical .carousel-mask,
+		#new-product-carousel.ui-touchCarousel-vertical .carousel-mask {
+			width: 150px;
+		}
+		
+			/** items per page **/
+			#new-product-carousel.ui-carousel-vertical.ui-carousel-items-1 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-1 .carousel-mask {
+				height: 150px;
+			}
+			
+			#new-product-carousel.ui-carousel-vertical.ui-carousel-items-2 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-2 .carousel-mask {
+				height: 300px;
+			}
+			
+			#new-product-carousel.ui-carousel-vertical.ui-carousel-items-3 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-3 .carousel-mask {
+				height: 450px;
+			}
+			
+			#new-product-carousel.ui-carousel-vertical.ui-carousel-items-4 .carousel-mask,
+			#new-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-4 .carousel-mask {
+				height: 600px;
+			}
+
+
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+.defaultcarousel{width:352px;}
+.horizontalcarousel{width:426px;}
+.verticalcarousel{width:268px;}
+#new-product-carousel {}
+			.draggable{width:900px;}
+			/** items per page **/
+			#moreview-product-carousel.ui-carousel-items-1 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-items-1 .carousel-mask {
+				width: 150px;
+			}
+			
+			#moreview-product-carousel.ui-carousel-items-2 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-items-2 .carousel-mask {
+				width: 300px;
+			}
+			
+			#moreview-product-carousel.ui-carousel-items-3 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-items-3 .carousel-mask {
+				width: 581px;
+			}
+			
+			#moreview-product-carousel.ui-carousel-items-4 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-items-4 .carousel-mask {
+				width: 600px;
+			}
+			
+			/** no of rows **/
+			#moreview-product-carousel.ui-carousel-rows-1 .horizontalcarousel,
+			#moreview-product-carousel.ui-touchCarousel-rows-1 .horizontalcarousel{
+				
+				width:424px;
+			}
+			#moreview-product-carousel.ui-carousel-rows-1 .defaultcarousel,
+			#moreview-product-carousel.ui-touchCarousel-rows-1 .defaultcarousel{
+				
+				width:352px;
+			}
+			#moreview-product-carousel.ui-carousel-rows-1 .verticalcarousel,
+			#moreview-product-carousel.ui-touchCarousel-rows-1 .verticalcarousel{
+				
+				width:264px;
+			}
+			#moreview-product-carousel.ui-carousel-rows-1 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-rows-1 .carousel-mask {
+				height: 75px;
+			    
+			}
+			
+			#moreview-product-carousel.ui-carousel-rows-2 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-rows-2 .carousel-mask {
+				height: 300px;
+			}
+			
+			#moreview-product-carousel.ui-carousel-rows-3 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-rows-3 .carousel-mask {
+				height: 450px;
+			}
+		
+		/** vertical **/
+		#moreview-product-carousel.ui-carousel-vertical .carousel-mask,
+		#moreview-product-carousel.ui-touchCarousel-vertical .carousel-mask {
+			width: 150px;
+		}
+		
+			/** items per page **/
+			#moreview-product-carousel.ui-carousel-vertical.ui-carousel-items-1 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-1 .carousel-mask {
+				height: 150px;
+			}
+			
+			#moreview-product-carousel.ui-carousel-vertical.ui-carousel-items-2 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-2 .carousel-mask {
+				height: 300px;
+			}
+			
+			#moreview-product-carousel.ui-carousel-vertical.ui-carousel-items-3 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-3 .carousel-mask {
+				height: 450px;
+			}
+			
+			#moreview-product-carousel.ui-carousel-vertical.ui-carousel-items-4 .carousel-mask,
+			#moreview-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-4 .carousel-mask {
+				height: 600px;
+			}
+
+
+		/*-------------------------------------------------------------------------------------------------*/
+		
+		
+		#upsell-product-carousel {}
+		
+			/** items per page **/
+			#upsell-product-carousel.ui-carousel-items-1 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-items-1 .carousel-mask {
+				width: 150px;
+			}
+			
+			#upsell-product-carousel.ui-carousel-items-2 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-items-2 .carousel-mask {
+				width: 300px;
+			}
+			
+			#upsell-product-carousel.ui-carousel-items-3 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-items-3 .carousel-mask {
+				width: 581px;
+			}
+			
+			#upsell-product-carousel.ui-carousel-items-4 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-items-4 .carousel-mask {
+				width: 600px;
+			}
+			
+			/** no of rows **/
+			#upsell-product-carousel.ui-carousel-rows-1 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-rows-1 .carousel-mask {
+				height: 395px;
+				width:1000px;
+				
+				
+			}
+			
+			#upsell-product-carousel.ui-carousel-rows-2 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-rows-2 .carousel-mask {
+				height: 300px;
+			}
+			
+			#upsell-product-carousel.ui-carousel-rows-3 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-rows-3 .carousel-mask {
+				height: 450px;
+			}
+		
+		/** vertical **/
+		#upsell-product-carousel.ui-carousel-vertical .carousel-mask,
+		#upsell-product-carousel.ui-touchCarousel-vertical .carousel-mask {
+			width: 150px;
+		}
+		
+			/** items per page **/
+			#upsell-product-carousel.ui-carousel-vertical.ui-carousel-items-1 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-1 .carousel-mask {
+				height: 150px;
+			}
+			
+			#upsell-product-carousel.ui-carousel-vertical.ui-carousel-items-2 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-2 .carousel-mask {
+				height: 300px;
+			}
+			
+			#upsell-product-carousel.ui-carousel-vertical.ui-carousel-items-3 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-3 .carousel-mask {
+				height: 450px;
+			}
+			
+			#upsell-product-carousel.ui-carousel-vertical.ui-carousel-items-4 .carousel-mask,
+			#upsell-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-4 .carousel-mask {
+				height: 600px;
+			}
+
+		
+		
+		
+		/*--------------------------------------------------------------------------------------------------*/
+		#popular-product-carousel {}
+		
+			/** items per page **/
+			#popular-product-carousel.ui-carousel-items-1 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-items-1 .carousel-mask {
+				width: 150px;
+			}
+			
+			#popular-product-carousel.ui-carousel-items-2 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-items-2 .carousel-mask {
+				width: 300px;
+			}
+			
+			#popular-product-carousel.ui-carousel-items-3 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-items-3 .carousel-mask {
+				width: 581px;
+			}
+			
+			#popular-product-carousel.ui-carousel-items-4 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-items-4 .carousel-mask {
+				width: 600px;
+			}
+			
+			/** no of rows **/
+			#popular-product-carousel.ui-carousel-rows-1 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-rows-1 .carousel-mask {
+				height: 410px;
+				width:396px;
+				float:left;
+			}
+			
+			#popular-product-carousel.ui-carousel-rows-2 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-rows-2 .carousel-mask {
+				height: 300px;
+			}
+			
+			#popular-product-carousel.ui-carousel-rows-3 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-rows-3 .carousel-mask {
+				height: 450px;
+			}
+		
+		/** vertical **/
+		#popular-product-carousel.ui-carousel-vertical .carousel-mask,
+		#popular-product-carousel.ui-touchCarousel-vertical .carousel-mask {
+			width: 150px;
+		}
+		
+			/** items per page **/
+			#popular-product-carousel.ui-carousel-vertical.ui-carousel-items-1 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-1 .carousel-mask {
+				height: 150px;
+			}
+			
+			#popular-product-carousel.ui-carousel-vertical.ui-carousel-items-2 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-2 .carousel-mask {
+				height: 300px;
+			}
+			
+			#popular-product-carousel.ui-carousel-vertical.ui-carousel-items-3 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-3 .carousel-mask {
+				height: 450px;
+			}
+			
+			#popular-product-carousel.ui-carousel-vertical.ui-carousel-items-4 .carousel-mask,
+			#popular-product-carousel.ui-touchCarousel-vertical.ui-touchCarousel-items-4 .carousel-mask {
+				height: 600px;
+			}
+
+		
+		
+		
+		
+		
