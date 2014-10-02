@@ -187,8 +187,9 @@ Default layout, loads most of the pages
 				<label>Top Row</label>
 			</block>
 			<block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
-      
-      <block type="core/template" name="categorybanner" as="categorybanner" template="catalog/category/banner.phtml" />
+          
+         <!-- added this here. perhaps a more suitable place can be found for it. --> 
+         <block type="core/template" name="categorybanner" as="categorybanner" template="catalog/category/banner.phtml" />
       
 			<block type="core/text_list" name="left" as="left" translate="label">
 				<label>Left Column</label>

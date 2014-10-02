@@ -2,7 +2,7 @@
 
 <div class="container" >
     <?php
-    
+    /*** i mimic the $this->getCmsBlockHtml(); from try/template/catalog/category/view.phtml ***/
     $cat = Mage::registry('current_category');
     if($cat){
         $html = Mage::app()->getLayout()->createBlock('cms/block')
