@@ -1,0 +1,73 @@
+<?php
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+
+    foreach ($this->getGalleryImages() as $_image)
+      if ($_image->getFile() == $_product->getData('small_image'))
+        $mainImagePath = $this->getGalleryUrl($_image);
+
+    $_specialPrice = $_product->getSpecialPrice();
+    $_hasSpecial = $_specialPrice !== null
+                   && $_specialPrice !== false
+                   && Mage::app()
+                        ->getLocale()
+                        ->isStoreDateInInterval(
+                            Mage::app()->getStore(),
+                            $_product->getSpecialFromDate(),
+                            $_product->getSpecialToDate()
+                          );
+?>
+
+<?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+<div class="product-image product-image-zoom detail_product_blog_img_bg">
+    <a rel="zoomWidth: '400',zoomHeight: '400',adjustX:6,adjustY:-3,position: 'right',smoothMove: 3,showTitle: true,titleOpacity: 0,lensOpacity: 0,tintOpacity: 0,softFocus: true" gallery="<?php echo $mainImagePath; ?>" href="<?php echo $this->helper('catalog/image')->init($_product, 'image'); ?>" class="cloud-zoom" id="cloudZoom">
+    <?php
+        $_img = '<img id="image" src="' . $this->helper('catalog/image')->init($_product, 'image')->resize(403) . '" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+
+      <?php if ($_hasSpecial): ?>
+      <span class="sale">
+        <span class="sale_img"></span>
+      </span>
+      <?php endif; ?>
+
+    </a>
+</div>
+<?php else: ?>
+<div class="product-image detail_product_blog_img_bg">
+    <?php
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(265).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+
+    <?php if ($_hasSpecial): ?>
+    <span class="sale">
+      <span class="sale_img"></span>
+    </span>
+    <?php endif; ?>
+
+</div>
+<?php endif; ?>
+
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="view_img_box">
+  <ul>
+
+  <?php foreach ($this->getGalleryImages() as $_image): ?>
+    <li class="view_img_left">
+      <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>"
+         rel="popupWin: '<?php echo $this->getGalleryUrl($_image); ?>', useZoom: 'cloudZoom', smallImage: '<?php echo $this->helper('catalog/image')->init($_product, 'image', $_image->getFile())->resize(403); ?>'"
+         class="cloud-zoom-gallery view_img_bg"
+         title="<?php echo $this->htmlEscape($_image->getLabel()); ?>">
+
+        <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(75); ?>"
+             width="75"
+             alt="<?php echo $this->htmlEscape($_image->getLabel()); ?>" />
+      </a>
+    </li>
+  <?php endforeach; ?>
+
+  </ul>
+</div>
+<?php endif; ?>

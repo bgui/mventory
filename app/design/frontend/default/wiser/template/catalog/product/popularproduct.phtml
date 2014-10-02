@@ -1,0 +1,220 @@
+
+
+<?php $ajaxcart = themeOptions('ajaxcart'); ?>
+<?php $avail = false; ?>
+<?php
+$storeId = Mage::app()->getStore()->getId();
+$_productCollection = Mage::getResourceModel('reports/product_collection')
+		->addOrderedQty()
+		->addAttributeToSelect('*')
+		->addViewsCount()
+		->setStoreId($storeId)
+		->addStoreFilter($storeId)
+		->setOrder('views_count', 'desc'); // most best sellers on top
+	    Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($products);
+	    
+ $_productCollection->setPage(1, 40);
+                  
+
+?>	
+		
+		
+		<div class="popular_box six columns offset-by-six">
+			<div class="tital">
+			<div class="hr"><h1><?php echo $this->__('Popular Items') ?></h1></div>
+			</div>
+			<p class="last">Pexplicabo. Nemo enim ipsam voluptatem quia sit aspernatur aut odit aut fugit, sed quia olores eos</p>	
+			<div class="errow_iphone">
+				<a href="#next" class="next btn btn_arrow btn_right_arrow" title="Next" onclick="j$('#popular-product-carousel').touchCarousel('next');"></a>
+				<a href="#prev" class="prev btn btn_arrow btn_left_arrow arrow" title="Preview" onclick="j$('#popular-product-carousel').touchCarousel('prev');"></a>
+			</div>
+			
+			<div id="popular-product-carousel" class="ui-carousel module ui-touchCarousel ui-touchCarousel-horizontal ui-touchCarousel-items-3 ui-touchCarousel-rows-1">
+			<div class="carousel-mask">
+				 <?php $_iterator = 0; ?>
+			<ul id="new-product-collation" class="ui-draggable">
+			<?php foreach($_productCollection as $_product) : $avail = true;?>
+			
+			<li class="arrivals_price_box item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
+					
+					<div class="view view-first">
+				
+						<?php if($ajaxcart == '2') { ?>
+						<a href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox quick-view' id='fancybox<?php echo $_product->getId()?>'><?php echo $this->__('Quick-View') ?></a>
+						<?php } ?>
+						
+						<a href="<?php echo $_product->getProductUrl() ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(181,272) ?>" width="181" height="272"  alt="arrivals price 4" /></a>
+							<div class="sale">
+								<?php $cdate = date('Y-m-d');  //echo 'frpm:-'.$_product->special_from_date.'----';echo "to:-".$_product->special_to_date.'--';
+								    $a= 0;
+								    if($_product->special_from_date != null && $_product->special_to_date == "")
+								    {
+									if( $cdate >= $_product->special_from_date)
+									{
+										$a = 1; 
+									}
+								    }
+								    if($_product->special_from_date != "" && $_product->special_to_date != "")
+								    {
+									if($cdate >= $_product->special_from_date && $cdate <= $_product->special_to_date)
+									{
+									$a = 1; 
+									}
+								    }
+									if($a == 1){ ?>
+								       <div class="sale_img"></div>
+									<?php } 
+								    ?>
+								 
+								<?php if($this->getReviewsSummaryHtml($_product) != null): ?>
+								<div class="star_img"><?php echo $this->getReviewsSummaryHtml($_product) ?></div>
+								 <?php endif; ?>
+							</div>
+							
+							<div class="mask">
+							
+								<div class="product_btn">
+									
+									<?php if($_product->isSaleable()): ?>
+										<?php if($ajaxcart == '1' || $ajaxcart == '2') { ?>
+										    <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
+										    <a href="#add-to-cart" onclick="setLocationAjax('<?php echo $this->getAddToCartUrl($_product) ?>','<?php echo $_product->getId()?>')" class="btn-cart ajx-cart btn_view btn_add_bag btn_add_bag_position info" title="<?php echo $this->__('Buy now') ?>"><?php echo $this->__('Add To Bag') ?></a>
+										    
+										    <?php } else { ?>
+											    <a href="#add-to-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')" class="btn-cart btn_view btn_add_bag btn_add_bag_position info" title="<?php echo $this->__('Buy now') ?>"><?php echo $this->__('Add To Bag') ?></a>
+											    
+										    <?php }  ?>
+										<?php } else { ?>
+										    <a href="#add-to-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')" class="btn-cart btn_view btn_add_bag btn_add_bag_position info" title="<?php echo $this->__('Buy now') ?>"><?php echo $this->__('Add To Bag') ?></a>
+										<?php } ?>
+									<?php else: ?>
+										<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+									<?php endif; ?>
+								</div>
+								
+								<div class="product_btn last">
+									 <?php if ($this->helper('wishlist')->isAllow()) : ?>
+									<a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="btn_view btn_view_product btn_view_product_1 info" title="<?php echo $this->__('Add to Wishlist') ?>"></a>
+									<?php endif; ?>
+									<a href="<?php echo $_product->getProductUrl(); ?>" class="btn_view btn_view_product btn_view_product_2 info" title="<?php echo $this->__('View Details') ?>"></a>
+									<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+									<a href="<?php echo $_compareUrl ?>" class="btn_view btn_view_product btn_view_product_3 info" title="<?php echo $this->__('Add to Compare') ?>"></a>
+									 <?php endif; ?>
+								</div>	
+							</div>
+							
+					</div>
+							<?php 
+								$productName = $this->htmlEscape($_product->getName());
+								if(strlen($productName) > 25) {
+									$productName = mb_strimwidth($productName,0,25,"...",'utf-8');
+								}
+							?>
+				<p><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
+							<?php echo $productName; ?>
+							</a></p>
+				
+				<div class="clear"></div>
+				
+				<div class="add_box">
+					<h2><?php echo $this->getPriceHtml($_product, true) ?></h2>
+				</div>
+				<div id='ajax_loader1<?php echo $_product->getId()?>' class="ajaxcartpro_progress" style="display: none;">
+					<img src="<?php echo $this->getSkinUrl('ajaxcart/images/al.gif'); ?>">
+					<p><?php echo $this->__('Please wait...') ?></p>
+					<div><?php echo $this->__('We are updating Shopping Bag.') ?></div>
+				</div>
+			</li>
+			
+			<?php endforeach; ?>
+			</ul></div></div>
+		</div>
+		
+		<?php
+		if($avail == true)
+		{
+		?>
+		
+		<script type="text/javascript">
+				j$(function(){
+				
+						var opts = {};
+						opts['itemsPerTransition'] = 1;
+						opts['pagination'] = false;
+						opts['nextPrevActions'] = false;
+						
+						//carousel = j$('#new-product-carousel');
+						//carousel.touchCarousel(opts);
+						
+						carousel2 = j$('#popular-product-carousel');
+						carousel2.touchCarousel(opts);
+					
+				});
+		</script>
+		<?php
+		}?>
+<script type="text/javascript">
+     <?php if($ajaxcart == '1' || $ajaxcart == '2') { ?>
+	jQuery.noConflict();
+	
+	jQuery('.fancybox').live('click', function() {
+        jQuery('#fancybox-loading').show();
+        });
+	
+	jQuery('.fancybox').fancybox(
+			{
+			   hideOnContentClick : true,
+			   width: 650,
+			   autoDimensions: true,
+               type : 'iframe',
+			   showTitle: false,
+			   scrolling: 'no',
+			   onComplete: function(){
+				jQuery('#fancybox-frame').load(function() { // wait for frame to load and then gets it's height
+					jQuery('#fancybox-loading').hide();
+					jQuery('#fancybox-content').height(jQuery(this).contents().find('body').height()+30);
+					jQuery.fancybox.resize();
+				 });
+
+			   }
+			}
+		);
+	
+	function showOptions(id){
+		jQuery('#fancybox'+id).trigger('click');
+	}	
+	
+	function setAjaxData(data,iframe){
+		if(data.status == 'ERROR'){
+			alert(data.message);
+		}else{
+		    successMessage(data.message);
+			if(jQuery('.block-cart')){
+	            jQuery('.block-cart').replaceWith(data.sidebar);
+	        }
+	        if(jQuery('.header .links')){
+	            jQuery('.header .links').replaceWith(data.toplink);
+	        }
+	        jQuery.fancybox.close();
+		}
+	}
+	function setLocationAjax(url,id){
+	    
+		url += 'isAjax/1';
+		url = url.replace("checkout/cart","ajax/index");
+		jQuery('#ajax_loader1'+id).show();
+		
+		try {
+			jQuery.ajax( {
+				url : url,
+				dataType : 'json',
+				success : function(data) {
+					jQuery('#ajax_loader1'+id).hide();
+         			setAjaxData(data,false);           
+				}
+			});
+		} catch (e) {
+		}
+	}
+	 <?php  } ?>
+</script>
