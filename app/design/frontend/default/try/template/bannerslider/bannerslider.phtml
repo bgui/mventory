@@ -1,0 +1,84 @@
+<?php
+
+$banners = array(
+  array(
+    'title' => '',
+    'content' => '',
+    'weblink' => '',
+    'filename' => '/skin/frontend/default/try/images/slideshow/slide1.jpg'
+  ),
+  array(
+    'title' => '',
+    'content' => '',
+    'weblink' => '',
+    'filename' => '/skin/frontend/default/try/images/slideshow/slide2.jpg'
+  ),
+  array(
+    'title' => '',
+    'content' => '',
+    'weblink' => '',
+    'filename' => '/skin/frontend/default/try/images/slideshow/slide3.jpg'
+  ),
+  array(
+    'title' => '',
+    'content' => '',
+    'weblink' => '',
+    'filename' => '/skin/frontend/default/try/images/slideshow/slide4.jpg'
+  ),
+);
+
+?>
+
+<div class="flexslider">
+  <ul class="slides">
+
+    <?php foreach ($banners as $banner): ?>
+    <li>
+      <img src=" <?php echo $banner['filename']?>" />
+
+      <?php if ($banner['title']): ?>
+      <div class="slider-text">
+        <h1><?php echo $banner['title']?></h1>
+        <p><?php echo $banner['content']; ?></p>
+
+        <?php if ($banner['weblink']): ?>
+        <a href="<?php echo $banner['weblink'];?>" title="Read More...">Read More...</a>
+        <?php endif;?>
+
+      </div>
+      <?php endif;?>
+
+    </li>
+    <?php endforeach; ?>
+
+  </ul>
+
+  <div id="slide-inner">
+
+    <h3>Welcome to mVentory Demo Store</h3>
+
+    <div id="slide-columns" class="clearer">
+      <div id="slide-center">
+        <ol>
+          <li>Install mVentory app from <a id="slider-gplay" title="Install from Google Play" href="https://play.google.com/store/apps/details?id=com.mageventory">Google Play</a></li>
+          <li>Tap on "Trial" button in the app</li>
+          <li>Press "New" to add a product</li>
+        </ol>
+		<p>Your products will appear on this demo website</p>
+      </div>
+     </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+jQuery(function($) {
+
+$('.flexslider').flexslider({
+  animation: 'slide',
+  slideshowSpeed: 10000,
+  animationSpeed: 1200,
+  directionNav: false
+});
+
+});
+</script>

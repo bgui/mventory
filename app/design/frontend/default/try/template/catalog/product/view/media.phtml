@@ -1,0 +1,86 @@
+<?php
+
+$_product = $this->getProduct();
+$_imageHelper = Mage::helper('catalog/image');
+$_gallery = $this->getGalleryImages();
+
+$_imageLabel = $this->htmlEscape($this->getImageLabel());
+
+?>
+
+<div class="detail_product_blog_img_bg">
+  <a class="preview" href="<?php echo $_imageHelper->init($_product, 'image')->resize(1200, 900); ?>" rel="group" title="<?php echo $_imageLabel; ?>">
+    <img src="<?php echo $_imageHelper->init($_product, 'image')->resize(403); ?>" width="403" alt="<?php echo $_imageLabel; ?>" title="<?php echo $_imageLabel; ?>" />
+  </a>
+</div>
+
+<?php if (count($_gallery) > 1): ?>
+
+<?php
+
+$_mainImage = $_product->getData('image');
+
+?>
+
+<ul>
+  <?php foreach ($_gallery as $_image): ?>
+
+  <?php
+
+  $_file = $_image->getFile();
+
+  if ($_file == $_mainImage)
+    continue;
+
+  $_imageLabel = $this->htmlEscape($_image->getLabel());
+
+  ?>
+
+  <li class="view_img_left">
+    <a class="preview" href="<?php echo $_imageHelper->init($_product, 'thumbnail', $_file)->resize(1200, 900); ?>" rel="group" title="<?php echo $_imageLabel; ?>">
+      <img src="<?php echo $_imageHelper->init($_product, 'thumbnail', $_file)->resize(75); ?>" width="75" alt="<?php echo $_imageLabel; ?>" title="<?php echo $_imageLabel; ?>" alt="<?php echo $_imageLabel; ?>" />
+    </a>
+  </li>
+  <?php endforeach; ?>
+</ul>
+
+<?php endif; ?>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var baseMediaUrl = '<?php echo Mage::getModel('catalog/product_media_config')->getBaseMediaUrl() ?>';
+
+jQuery(function ($) {
+
+$('a.preview').fancybox({
+  'zoomSpeedIn': 300,
+  'zoomSpeedOut': 300,
+  'overlayShow': true,
+  'hideOnContentClick': false,
+  'onStart' : function () {
+    //Don't add the button if it exists
+    if ($('#mv-view-full-size-button').length)
+      return;
+
+    $('#fancybox-outer')
+      .append('<a id="mv-view-full-size-button" target="_blank">' +
+                '<span class="left-part" />' +
+                '<span class="title">View full size</span>' +
+              '</a>');
+  },
+  'onComplete': function () {
+    var $img = $('#fancybox-img'),
+        url = $img.attr('src');
+
+    url = baseMediaUrl + url.substr(url.lastIndexOf('/') - 4);
+
+    $('#mv-view-full-size-button').prop('href', url);
+    $img.wrap('<a href="' + url + '" target="_blank"'
+              + 'title="Click to view the full resolution photo"/>');
+  }
+});
+
+});
+//]]>
+</script>

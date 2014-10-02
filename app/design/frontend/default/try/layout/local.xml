@@ -1,0 +1,73 @@
+<layout version="0.1.0">
+  <default>
+    <reference name="head">
+      <action method="addItem">
+        <type>skin_css</type>
+        <name>css/site-styles.css</name>
+      </action>
+    </reference>
+
+    <reference name="top.links">
+      <action method="addLink" translate="label title" module="customer">
+        <label>Back to mVentory</label>
+        <url>//mventory.com</url>
+        <title>Back to mVentory</title>
+        <prepare/>
+        <urlParams/>
+        <position>1</position>
+        <liParams />
+        <aParams>
+          <id>back-to-mventory</id>
+        </aParams>
+      </action>
+    </reference>
+  </default>
+
+  <catalog_category_default>
+    <reference name="product_list">
+      <action method="setColumnCount"><count>3</count></action>
+    </reference>
+  </catalog_category_default>
+
+  <catalog_category_layered>
+    <reference name="product_list">
+      <action method="setColumnCount"><count>3</count></action>
+    </reference>
+  </catalog_category_layered>
+
+  <catalog_product_view>
+    <reference name="productivity.image.edit">
+      <action method="unsImageWrapperSelector"></action>
+      <action method="setImageSelector">
+        <selector><![CDATA[#product_addtocart_form > .default-image > .detail_product_blog_img_bg > a > img]]></selector>
+      </action>
+
+      <action method="unsThumbWrapperSelector"></action>
+      <action method="setThumbSelector">
+        <selector><![CDATA[#product_addtocart_form > .default-image > ul > li > a > img]]></selector>
+      </action>
+
+      <action method="setImageSize">
+        <width>403</width>
+        <height></height>
+      </action>
+
+      <action method="setThumbSize">
+        <width>75</width>
+        <height></height>
+      </action>
+    </reference>
+  </catalog_product_view>
+
+  <cms_index_index>
+    <reference name="head">
+      <action method="addJs">
+        <script>flexslider/jquery-flexslider.js</script>
+      </action>
+      <action method="addItem">
+        <type>js_css</type>
+        <name>flexslider/flexslider.css</name>
+      </action>
+    </reference>
+  </cms_index_index>
+</layout>
